@@ -1,0 +1,21 @@
+services:
+  superset:
+    build:
+      context: ./superset
+      dockerfile: Dockerfile
+    image: kg-superset:local
+    container_name: kg-superset
+    ports:
+      - "8088:8088"
+    environment:
+      SUPERSET_SECRET_KEY: "demo_change_me_long_random_value_1234567890"
+      MAPBOX_API_KEY: "${MAPBOX_API_KEY:-}"
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: admin
+    volumes:
+      - superset_home:/app/superset_home
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  superset_home:

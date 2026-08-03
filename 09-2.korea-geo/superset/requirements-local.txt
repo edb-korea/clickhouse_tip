@@ -1,0 +1,2 @@
+# Superset 공식 ClickHouse 드라이버. 이게 없으면 SQLAlchemy 가 clickhousedb 다이얼렉트를 못 찾는다.
+clickhouse-connect>=0.7.0
